@@ -45,11 +45,11 @@ export const LogicNodeComponent: React.FC<Props> = ({
   }
 
   return (
-    <div className={`ml-8 mt-4 border-l-2 pl-6 relative transition-colors ${isInCycle ? 'border-red-500' : 'border-blue-500/30'}`}>
+    <div className={`ml-4 md:ml-8 mt-4 border-l-2 pl-4 md:pl-6 relative transition-colors flex-shrink-0 ${isInCycle ? 'border-red-500' : 'border-blue-500/30'}`}>
       {/* Visual connector dash */}
       <div className={`absolute top-8 left-0 w-6 h-[2px] ${isInCycle ? 'bg-red-500' : 'bg-blue-500/30'}`}></div>
 
-      <div className={`p-4 rounded-xl bg-slate-800/80 backdrop-blur-sm border-2 transition-all duration-500 ${
+      <div className={`p-4 rounded-xl bg-slate-800/80 backdrop-blur-sm border-2 transition-all duration-500 min-w-[280px] sm:min-w-[320px] ${
         isInCycle 
           ? 'border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.3)] animate-pulse-slow' 
           : 'border-slate-700 hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]'
@@ -93,7 +93,7 @@ export const LogicNodeComponent: React.FC<Props> = ({
             </button>
             
             <select 
-              className="px-3 bg-slate-900/50 border border-slate-700/50 text-[10px] text-slate-400 rounded-lg py-2 focus:outline-none hover:border-blue-500/30 transition-all font-bold uppercase tracking-widest"
+              className="px-3 bg-slate-800 border border-slate-700 text-[10px] text-slate-200 rounded-lg py-2 focus:outline-none hover:border-blue-500/30 transition-all font-bold uppercase tracking-widest ring-offset-slate-900"
               value=""
               onChange={(e) => {
                 if (e.target.value) onLink(nodeId, e.target.value);

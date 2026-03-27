@@ -19,14 +19,14 @@ export const FlowCanvas: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 p-8 font-sans selection:bg-blue-500/30">
+    <div className="h-screen flex flex-col bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30 overflow-hidden relative">
       {/* Decorative background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/10 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-900/10 blur-[120px] rounded-full"></div>
       </div>
 
-      <header className="max-w-6xl mx-auto mb-16 flex flex-col md:flex-row md:items-center justify-between gap-8 border-b border-slate-800/50 pb-10 relative z-10">
+      <header className="flex-shrink-0 max-w-6xl w-full mx-auto mt-8 mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-8 border-b border-slate-800/50 pb-8 relative z-10 px-4 md:px-8">
         <div className="space-y-2">
           <div className="flex items-center gap-3">
              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
@@ -71,7 +71,8 @@ export const FlowCanvas: React.FC = () => {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto relative z-10 mb-32">
+      <main className="flex-grow w-full overflow-auto custom-scrollbar relative z-10 pb-20 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
         <div className="relative">
           {/* Visual tree guide line */}
           <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-blue-500/40 via-blue-500/10 to-transparent"></div>
@@ -87,6 +88,7 @@ export const FlowCanvas: React.FC = () => {
             onUnlink={unlinkNodes}
             isRoot={true}
           />
+        </div>
         </div>
       </main>
 
@@ -108,9 +110,11 @@ export const FlowCanvas: React.FC = () => {
       )}
 
       {/* Footer Branding */}
-      <footer className="max-w-6xl mx-auto py-12 border-t border-slate-900 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-slate-700">
-        <p>© 2026 LOGIC FLOW ENGINE v1.0.0</p>
-        <p>Built with React & TypeScript</p>
+      <footer className="flex-shrink-0 w-full border-t border-slate-900 bg-slate-950/80 backdrop-blur-md relative z-20">
+        <div className="max-w-6xl mx-auto py-6 px-4 md:px-8 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-slate-700">
+          <p>© 2026 LOGIC FLOW ENGINE v1.0.0</p>
+          <p>Built with React & TypeScript</p>
+        </div>
       </footer>
     </div>
   );
